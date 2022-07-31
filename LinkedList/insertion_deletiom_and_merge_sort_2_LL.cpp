@@ -134,52 +134,83 @@ bool recSearching(Node *head, int key)
     }
 }
 
-//TAKING INPUT
-Node* take_input(){
+// TAKING INPUT
+Node *take_input()
+{
     int d;
-    cin>>d;
-    Node*head=NULL;
-    while(d!=-1){
-        insertAtHead( head ,d);
-        cin>>d;
+    cout<<"enter num of elements"<<endl;
+    cin >> d;
+    Node *head = NULL;
+    cout<<"enter elements"<<endl;
+    while (d != -1)
+    {
+        insertAtHead(head, d);
+        cin >> d;
     }
     return head;
 }
 
-//OPERATOR OVERLOADING, OVERLOADING <<,>>
- ostream& operator<<(ostream &os, Node*head){ //2parameters are passed, << ke left n right vale, here cin and head
-   print(head);
-   return os; //os is basically cout. Idhar we are doing cascading of operators 
- }
+// OPERATOR OVERLOADING, OVERLOADING <<,>>
+ostream &operator<<(ostream &os, Node *head)
+{ // 2parameters are passed, << ke left n right vale, here cin and head
+    print(head);
+    return os; // os is basically cout. Idhar we are doing cascading of operators
+}
+
+Node *merge(Node *a, Node *b)
+{
+    // base case
+    if (a == NULL)
+    {
+        return b;
+    }
+    if (b == NULL)
+    {
+        return a;
+    }
+    //take a head ptr
+    Node *c;
+    if(a->data<b->data){
+        c=a;
+        c->next=merge(a->next,b);
+    }
+    else{
+        c=b;
+        c->next=merge(a,b->next);
+    }
+    return c;
+    }
 
 int main()
 {
-/*
-    Node *head = NULL;
-    insertAtHead(head, 3);
-    insertAtHead(head, 2);
-    insertAtHead(head, 1);
-    insertAtHead(head, 0);
-    print(head);
-    cout << endl;
-    insertAtHead(head, 10);
-    insertAtTail(head, 20);
-    insertInMiddle(head, 30, 3);
-    print(head);
-    
-    if (search(head, 10))
-    {
-        cout << "found";
-    }
-    else
-    {
-        cout << "not found";
-    }*/
-    Node*head1=take_input();
-    Node*head2=take_input(); //2 LLs
-    cout<<head1<<head2;      //since operator ko overload kra hai, 
-                     //isliye puri LL print horhi,else sirf head ka address print hota
-    
-    //agar bina cascading k krte, to cout<<head1<<head2 error deta 
+    /*
+        Node *head = NULL;
+        insertAtHead(head, 3);
+        insertAtHead(head, 2);
+        insertAtHead(head, 1);
+        insertAtHead(head, 0);
+        print(head);
+        cout << endl;
+        insertAtHead(head, 10);
+        insertAtTail(head, 20);
+        insertInMiddle(head, 30, 3);
+        print(head);
+
+        if (search(head, 10))
+        {
+            cout << "found";
+        }
+        else
+        {
+            cout << "not found";
+        }*/
+    Node *head1 = take_input();
+    Node *head2 = take_input(); // 2 LLs
+    cout << head1 << head2<<endl<<endl;     // since operator ko overload kra hai,
+                            // isliye puri LL print horhi,else sirf head ka address print hota
+
+    // agar bina cascading k krte, to cout<<head1<<head2 error deta
+    Node *neewHead=merge(head1,head2);
+    cout<<neewHead;
     return 0;
 }
