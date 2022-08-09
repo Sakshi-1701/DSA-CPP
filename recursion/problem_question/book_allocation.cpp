@@ -28,6 +28,7 @@ bool isPossible(int arr[],int n,int m,int mid)
            pages+=arr[i];
        }
    }
+   return true;
 }
 
 int findPages(int arr[],int n,int m)
