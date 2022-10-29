@@ -1,3 +1,9 @@
+//Contributor: Sakshi Vashishtha
+//Github profile: https://github.com/Sakshi-1701
+
+//MERGE SORT 
+
+
 #include <iostream>
 using namespace std;
 

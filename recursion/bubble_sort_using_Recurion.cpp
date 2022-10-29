@@ -21,12 +21,16 @@ int main(){
     int n;
     cout<<"enter number of elements"<<endl;
     cin>>n;
-    int a[n];
+    int elements[n];
     cout<<"enter array"<<endl;
     for(int i=0;i<n;i++){
-        cin>>a[i];
+        cin>>elements[i];
     }
-bubble_sort(a,n);
+bubble_sort(elements,n);
 
+cout<<"Elements after sorting: "<<endl;
+for(int i=0;i<n;i++){
+    cout<<elements[i]<<" ";
+}
     return 0;
 }

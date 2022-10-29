@@ -15,6 +15,7 @@ public:
         top = -1;
     }
 
+//Inserting Elements
     void push(int x)
     {
         if (top == n - 1)
@@ -25,7 +26,7 @@ public:
         top++;
         arr[top] = x;
     }
-   
+//Removing elements   
    void pop(){
        if(top==-1){
            cout<<"no element to pop"<<endl;
@@ -34,6 +35,7 @@ public:
        top--;
    }
 
+//Topmost Element
    int Top()
    {    if(top==-1){
            cout<<"no element in stack"<<endl;
